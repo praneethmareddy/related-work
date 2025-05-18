@@ -1,0 +1,83 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage{cite}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+		T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\begin{document}
+	
+	\title{Deep Reinforcement Learning for Intelligent and Predictive Service Function Chain Deployment in Data Centers}
+	
+	\author{
+		\IEEEauthorblockN{Your Name}
+		\IEEEauthorblockA{
+			\textit{Department of Computer Science} \\
+			\textit{Your University} \\
+			City, Country \\
+			email@domain.com}
+	}
+	
+	\maketitle
+	
+	\begin{abstract}
+		Modern service function chain (SFC) deployment demands dynamic, predictive, and resource-efficient orchestration. Traditional approaches fall short in scalability and adaptability, especially under variable traffic conditions. This paper proposes a deep reinforcement learning (DRL) framework enhanced with graph neural networks (GNNs) for SFC deployment in virtualized data centers. Our environment simulates a data center network and processes SFC requests episode-wise. Embeddings, QoS constraints, and monitoring labels guide placement decisions. A layered reward mechanism addresses resource usage, SLA compliance, and operator-level objectives. A SARIMA-based forecasting tool enables proactive vertical scaling, making our architecture self-aware and adaptive.
+	\end{abstract}
+	
+	\begin{IEEEkeywords}
+		Service Function Chaining, Deep Reinforcement Learning, Kubernetes, GNN, Auto-scaling, Data Center
+	\end{IEEEkeywords}
+	
+	\section{Introduction}
+	% Your intro here
+	% e.g., overview of SFC challenges, the importance of automation and intelligence, etc.
+	
+	\section{Related Work}
+	
+	The story of modern service deployment begins in the heart of the data center—a place that has evolved from static racks of hardware into intelligent, cloud-native ecosystems. Early innovations focused on virtualization and network softwarization, laying the groundwork for scalable service management. In this context, Arouk and Nikaein~\cite{arouk2020cloud} explored how container-based orchestration using Kubernetes could bring automation to 5G network functions. In parallel, Wiranata et al.~\cite{wiranata2020automation} proposed Mosaic5G Operators over Kubernetes to enable full-stack network automation and slicing. These insights underline a critical theme: data centers are no longer passive infrastructures but active participants in service delivery. Inspired by these transformations, our research recognizes the need for intelligent, adaptive mechanisms that respond to real-time conditions within such agile environments.
+	
+	But as data centers became smarter, the methods used to deploy network services remained largely conventional. Early approaches to Service Function Chain (SFC) deployment followed rule-based heuristics and static placement logic. For instance, traditional models~\cite{sfc1,sfc2} addressed VNF placement through integer programming or heuristic-based strategies. While they effectively managed small-scale deployments, these models lacked the adaptiveness and scalability demanded by modern, dynamic networks. Our work builds upon their foundational challenges by incorporating learning-based adaptivity into the placement process, enabling decisions that evolve with the network's state.
+	
+	A significant shift came with the integration of Deep Reinforcement Learning (DRL) into SFC placement. Qi et al.~\cite{qi2021graph} modeled the deployment problem as a combinatorial optimization task and proposed a GNN-enhanced DRL framework to handle graph-structured SFCs. This approach allowed the agent to capture both the topology and resource constraints of the infrastructure. Similarly, Li et al.~\cite{li2020drl} used variable action sets and delay-aware training to enhance placement decisions under SLA constraints. However, these works often focused solely on optimization metrics such as resource usage or delay, neglecting broader operational goals. In contrast, our research introduces a multi-layered reward system that incorporates CPU/memory constraints, SLA adherence, and operator-level global objectives. Additionally, we introduce a SARIMA-based forecasting mechanism for proactive vertical scaling, adding a predictive dimension not considered in prior works.
+	
+	Parallel to algorithmic advances, orchestration frameworks like Kubernetes have revolutionized lifecycle management for network services. By leveraging Operators and CRDs, recent works~\cite{arouk2020cloud,wiranata2020automation} have automated complex tasks like service upgrading, reconfiguration, and dynamic topology switching between monolithic and disaggregated RANs. These systems enable rapid deployment and real-time scalability of containerized VNFs. Building on this, our architecture introduces a monitoring agent that performs label-based segment routing and tracks key metrics such as peak utilization, energy efficiency, and software upgrade status. By integrating orchestration with traffic-aware intelligence, we aim to close the loop between observation, decision, and adaptation.
+	
+	Taken together, these works illustrate a clear progression—from rigid deployments and static heuristics to intelligent, predictive, and orchestrated service function chaining. Our work lies at the convergence of these advancements, introducing a GNN-DRL framework that is not only resource-efficient and SLA-compliant but also proactive and self-adaptive, anticipating network demands before they occur.
+	
+	\section{Proposed Methodology}
+	% Describe your architecture, GNN + DRL pipeline, state/reward/action design, and forecasting-based scaling here.
+	
+	\section{Experimental Setup and Results}
+	% Discuss simulation environment, metrics (e.g., energy, SLA), results vs. baselines
+	
+	\section{Conclusion}
+	% Recap the main contributions, advantages over prior work, and future directions
+	
+	\begin{thebibliography}{99}
+		
+		\bibitem{arouk2020cloud}
+		O.~Arouk and N.~Nikaein, ``5G Cloud-Native: Network Management and Automation,'' in \textit{Proc. IEEE/IFIP NOMS}, 2020.
+		
+		\bibitem{wiranata2020automation}
+		F.~A. Wiranata \textit{et al.}, ``Automation of Virtualized 5G Infrastructure Using Mosaic 5G Operator over Kubernetes Supporting Network Slicing,'' in \textit{Proc. IEEE ICIT}, 2020.
+		
+		\bibitem{sfc1}
+		T.~Taleb \textit{et al.}, ``On Multi-domain Network Service Orchestration Architectures and the Role of DevOps,'' \textit{IEEE Communications Magazine}, vol. 55, no. 7, pp. 204--211, Jul. 2017.
+		
+		\bibitem{sfc2}
+		J.~Halpern and C.~Pignataro, ``Service Function Chaining (SFC) Architecture,'' \textit{IETF RFC 7665}, 2015.
+		
+		\bibitem{li2020drl}
+		J.~Li \textit{et al.}, ``Delay-aware VNF Scheduling: A Reinforcement Learning Approach with Variable Action Set,'' \textit{IEEE Transactions on Cognitive Communications and Networking}, vol. 6, no. 4, pp. 1203--1217, Dec. 2020.
+		
+		\bibitem{qi2021graph}
+		S.~Qi \textit{et al.}, ``Energy-Efficient VNF Deployment for Graph-Structured SFC Based on Graph Neural Network and Constrained Deep Reinforcement Learning,'' in \textit{Proc. APNOMS}, 2021.
+		
+	\end{thebibliography}
+	
+\end{document}
