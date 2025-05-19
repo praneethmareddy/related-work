@@ -1,0 +1,76 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage{cite}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\begin{document}
+
+\title{Predictive and Adaptive Service Function Chain Deployment Using DRL in Virtualized Data Centers}
+
+\author{
+\IEEEauthorblockN{Your Name}
+\IEEEauthorblockA{
+\textit{Department of Computer Science} \\
+\textit{Your University} \\
+City, Country \\
+email@domain.com}
+}
+
+\maketitle
+
+\begin{abstract}
+Traditional service function chaining (SFC) deployment mechanisms struggle to satisfy the dynamic and resource-constrained requirements of modern data center environments. In this work, we propose an intelligent and proactive SFC deployment framework that uses Graph Neural Networks (GNNs) and Deep Reinforcement Learning (DRL) to make adaptive placement decisions. Our approach models a realistic data center with CPU, memory, bandwidth, and latency attributes and introduces layered reward modeling along with SARIMA-based traffic prediction for vertical auto-scaling. This paper situates our contribution within a progression of related work across data center evolution, SFC methods, DRL-based deployment, and Kubernetes automation.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Service Function Chaining, Deep Reinforcement Learning, Kubernetes, Auto-scaling, GNN, Data Center Networks
+\end{IEEEkeywords}
+
+\section{Related Work}
+
+The evolution of data centers over the past decade has dramatically reshaped how services are deployed and managed. Traditional monolithic infrastructures have been replaced with software-defined, distributed environments designed for agility and scalability. In~\cite{datacenter1}, a software-defined approach is explored to reduce inter-traffic and optimize resource allocation within cloud-scale data centers. Further architectural transformation is highlighted in~\cite{datacenter2}, which focuses on decomposing legacy functions into microservices, improving observability and enabling fine-grained control. These works collectively frame data centers as programmable, intelligent environments—an essential foundation for dynamic SFC deployment.
+
+With this foundation, the focus shifts to how services are actually deployed across such infrastructures. Traditional Service Function Chain (SFC) deployment methods have generally relied on optimization models or greedy heuristics. In~\cite{sfc1}, the authors approached the VNF placement problem using resource-aware static allocation, while~\cite{sfc2} emphasized constraints like delay and capacity in defining optimal chains. However, both fall short in scalability and adaptability. Their static nature limits responsiveness to fluctuating service demands or infrastructure dynamics. These limitations point toward the need for learning-based, feedback-driven mechanisms.
+
+Enter Deep Reinforcement Learning (DRL). The adoption of DRL marked a paradigm shift in how SFC deployment could be tackled. Li et al.~\cite{drl1} introduced delay-aware scheduling with variable action sets to improve responsiveness, demonstrating the potential of DRL for real-time decision-making. Building on this, Qi et al.~\cite{drl2} employed a Graph Neural Network-enhanced DRL model that could generalize to unseen graph-structured SFCs and physical network topologies. However, existing DRL approaches often stop short at resource optimization, ignoring broader operational concerns like energy efficiency, SLA monitoring, and long-term scalability. Our work extends this frontier by incorporating a multi-layered reward design and predictive auto-scaling using SARIMA models.
+
+Beyond algorithmic intelligence, orchestration and automation form the operational backbone of any scalable deployment. Kubernetes has emerged as the de facto standard for containerized service orchestration. Arouk and Nikaein~\cite{kube1} presented a framework for automating 5G deployments via Kubernetes and OpenShift Operators, enabling dynamic switching between RAN configurations. Wiranata et al.~\cite{kube2} expanded this concept by integrating Mosaic5G with FlexRAN to enable radio slicing and monitoring. These frameworks demonstrate how container orchestration can manage complex network slices and VNFs at scale. Our work complements these efforts by integrating label-based monitoring, SARIMA-based forecasting, and segment routing into the deployment pipeline—resulting in a unified platform that both learns and adapts.
+
+Altogether, this narrative reveals a progression: from static architectures to programmable data centers, from heuristic SFC deployment to intelligent DRL agents, and from manual orchestration to predictive and automated scaling. Our proposed framework builds on these pillars, offering a solution that is proactive, SLA-aware, and deeply integrated with real-time monitoring and orchestration technologies.
+
+\begin{thebibliography}{99}
+
+\bibitem{datacenter1}
+D. J. Liao, H. Xu, and Y. Jiang, ``Software-defined Inter-data Center Traffic Engineering,'' \textit{Journal of Communications and Networks}, vol. 21, no. 4, pp. 396--405, Aug. 2019.
+
+\bibitem{datacenter2}
+S. M. Moghaddam and A. Leon-Garcia, ``Software-defined Cloud-native Architectures: Vision and Research Challenges,'' in \textit{Proc. CNSM}, 2020, pp. 1--5.
+
+\bibitem{sfc1}
+M. Bari, S. Chowdhury, R. Ahmed, and R. Boutaba, ``On Orchestrating Virtual Network Functions,'' in \textit{Proc. CNSM}, 2015, pp. 50--56.
+
+\bibitem{sfc2}
+A. Mohammadkhan, M. Ghaderi, and Y. Ganjali, ``Service Function Chaining Simplified,'' in \textit{Proc. ACM SOSR}, 2017, pp. 1--7.
+
+\bibitem{drl1}
+J. Li, W. Shi, N. Zhang, and X. Shen, ``Delay-aware VNF Scheduling: A Reinforcement Learning Approach with Variable Action Set,'' \textit{IEEE Transactions on Cognitive Communications and Networking}, vol. 6, no. 4, pp. 1203--1217, Dec. 2020.
+
+\bibitem{drl2}
+S. Qi, S. Li, S. Lin, M. Y. Saidi, and K. Chen, ``Energy-Efficient VNF Deployment for Graph-Structured SFC Based on Graph Neural Network and Constrained Deep Reinforcement Learning,'' in \textit{Proc. APNOMS}, 2021, pp. 348--353.
+
+\bibitem{kube1}
+O. Arouk and N. Nikaein, ``5G Cloud-Native: Network Management and Automation,'' in \textit{Proc. IEEE/IFIP NOMS}, 2020.
+
+\bibitem{kube2}
+F. A. Wiranata, W. Shalannanda, R. Mulyawan, and T. Adiono, ``Automation of Virtualized 5G Infrastructure Using Mosaic 5G Operator over Kubernetes Supporting Network Slicing,'' in \textit{Proc. IEEE ICIT}, 2020.
+
+\end{thebibliography}
+
+\end{document}
