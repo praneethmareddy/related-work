@@ -1,0 +1,67 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage{cite}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\begin{document}
+
+\title{Related Work: DRL-Based Adaptive SFC Deployment in Cloud-Native Data Centers}
+
+\author{
+\IEEEauthorblockN{Your Name}
+\IEEEauthorblockA{
+\textit{Department of Computer Science} \\
+\textit{Your University} \\
+City, Country \\
+email@domain.com}
+}
+
+\maketitle
+
+\section{Related Work}
+
+The pursuit of high-performance and adaptive network services begins at the very core of digital infrastructure: the data center. With the emergence of 5G, the scale and complexity of data traffic have demanded new strategies for traffic-aware, regionally optimized deployments. Paul et al. [1] offered an early vision of such dynamic infrastructure by integrating K-means clustering with RNN-based forecasting to design regional data centers that align with user traffic patterns. Their approach not only emphasizes the importance of spatial intelligence in network design but also introduces forecasting as a core concept—something our work builds on when applying time-series models for traffic prediction and scaling.
+
+As 5G networks matured, the emphasis shifted toward integrating diverse resources across network domains. Tzanakaki et al. [2] illustrated this convergence through an architecture that blends optical, wireless, and data center elements under a unified control framework. This work reflects an important realization: efficient service deployment is not just about isolated infrastructure layers but about how compute, storage, and connectivity interplay cohesively. This philosophy resonates with our framework, which brings together monitoring, control, and learning across data center and routing layers for holistic decision-making.
+
+Building on these foundations, the next phase in this evolution addressed how network functions are composed into service chains. Harutyunyan et al. [3] introduced a latency-aware placement model tailored for 5G networks, offering an ILP formulation to position VNFs with strict delay requirements. Extending this, the authors explored user mobility-aware chaining strategies that adapt SFC placement in response to user movements [4]. These works showcase the richness of constraint-based chaining and highlight the value of context-aware placement. Our approach complements this direction by extending from context-aware heuristics to learning-based policies that evolve and generalize across diverse operational conditions.
+
+As networks became more dynamic, researchers began incorporating learning into deployment logic. Qi et al. [5] bridged the gap between topology and learning by using graph neural networks (GNNs) to encode graph-structured SFC requests and infrastructure into DRL frameworks. This advance opened the door for generalized learning over structured input. Around the same time, Dalgkitsis et al. [6] introduced SCHE2MA, a distributed DRL solution for multi-domain ultra-reliable low-latency services. Their model emphasized scalability and energy efficiency—goals that we also pursue, while enhancing flexibility through a layered reward system that incorporates not only resource usage and latency but also operator-level optimization goals. Additionally, we extend these works with proactive scaling using SARIMA-based forecasting, enabling not just adaptive but predictive service management.
+
+To activate such intelligence in real-world settings, orchestration frameworks play a vital role. Arouk and Nikaein [7] demonstrated how Kubernetes and OpenShift Operators can enable real-time reconfiguration of RAN elements in cloud-native 5G deployments. Their work highlights the strength of container-based orchestration and lifecycle automation. Wiranata et al. [8] took this further by integrating Mosaic5G and FlexRAN, enabling full-stack network slicing and telemetry via ElasticSearch and Kibana. These automation tools empower intelligent agents with the visibility and control required to operate effectively. Our system takes full advantage of this programmable substrate, layering it with DRL-based control, segment routing for efficient path steering, and label-based monitoring to dynamically track KPIs like peak utilization and energy use.
+
+Altogether, this body of work reveals a clear trajectory—from predictive data center planning to mobility-aware chaining, from topology-informed learning to containerized orchestration. Our contribution lies in converging these dimensions: a GNN-DRL-based architecture that receives graph embeddings and QoS constraints, reasons over learned policies using a multi-layer reward structure, and responds with forecast-driven scaling. Through this, we aim to deliver not only adaptive but anticipatory service placement—advancing the state of SFC deployment toward intelligent, scalable, and self-optimizing networks.
+
+\begin{thebibliography}{99}
+
+\bibitem{dc1}
+U.~Paul, S.~Dey, and M.~Chatterjee, ``Traffic-Profile and Machine Learning Based Regional Data Center Design and Operation for 5G Network,'' \textit{Journal of Communications and Networks}, vol.~21, no.~4, pp.~406--416, 2019.
+
+\bibitem{dc2}
+A.~Tzanakaki et al., ``Converged Optical, Wireless and Data Centre Network Infrastructures for 5G Services,'' \textit{Journal of Lightwave Technology}, vol.~37, no.~12, pp.~3140--3148, 2019.
+
+\bibitem{sfc1}
+D.~Harutyunyan et al., ``Latency-Aware Service Function Chain Placement in 5G Mobile Networks,'' in \textit{Proc. IEEE ICC}, 2019.
+
+\bibitem{sfc2}
+D.~Harutyunyan et al., ``Latency and Mobility–Aware Service Function Chain Placement in 5G Networks,'' in \textit{Proc. IEEE GLOBECOM}, 2020.
+
+\bibitem{drl1}
+S.~Qi et al., ``Energy-Efficient VNF Deployment for Graph-Structured SFC Based on Graph Neural Network and Constrained Deep Reinforcement Learning,'' in \textit{Proc. APNOMS}, 2021.
+
+\bibitem{drl2}
+A.~Dalgkitsis et al., ``SCHE2MA: A Scalable and Energy-Aware SFC Orchestration Approach for Multi-Domain B5G URLLC Services,'' in \textit{Proc. IEEE NOMS}, 2020.
+
+\bibitem{kube1}
+O.~Arouk and N.~Nikaein, ``5G Cloud-Native: Network Management and Automation,'' in \textit{Proc. IEEE/IFIP NOMS}, 2020.
+
+\bibitem{kube2}
+F.~A.~Wiranata et al., ``Automation of Virtualized 5G Infrastructure Using Mosaic 5G Operator over Kubernetes Supporting Network Slicing,'' in \textit{Proc. IEEE ICIT}, 2020.
+
+\end{thebibliography}
+
+\end{document}
